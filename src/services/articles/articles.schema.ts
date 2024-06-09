@@ -1,7 +1,7 @@
 // // For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
 import { resolve } from '@feathersjs/schema'
-import { Type, getValidator, querySyntax } from '@feathersjs/typebox'
 import type { Static } from '@feathersjs/typebox'
+import { Type, getValidator, querySyntax } from '@feathersjs/typebox'
 
 import type { HookContext } from '../../declarations'
 import { dataValidator, queryValidator } from '../../validators'
@@ -11,7 +11,15 @@ import type { ArticlesService } from './articles.class'
 export const articlesSchema = Type.Object(
   {
     id: Type.Number(),
-    text: Type.String()
+    text: Type.String(),
+    title: Type.String(),
+    date: Type.Date(),
+    url: Type.Array(
+      Type.String()
+    ),
+    killers: Type.Array(
+      Type.String()
+    )
   },
   { $id: 'Articles', additionalProperties: false }
 )
